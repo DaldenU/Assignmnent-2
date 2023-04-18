@@ -46,6 +46,15 @@ public class MyArrayList implements MyList {
         arr = newArr;
     }
 
+    // method that decreases the size of an array by one
+    public void decreaseArrSize() {
+        Object[] newArr = new Object[size() - 1];
+        for(int i = 0; i < size() - 1; i++){
+            newArr[i] = arr[i];
+        }
+        arr = newArr;
+    }
+
     // method to add an element to the specified index
     @Override
     public void add(Object item, int index) {
@@ -63,17 +72,28 @@ public class MyArrayList implements MyList {
             }
         }
         arr[index] = item;
-        System.out.println(Arrays.toString(arr));
     }
 
+    // method to remove the element by inputting its name
     @Override
     public boolean remove(Object item) {
-        return false;
+        for(int i = 0; i < size(); i++) {
+            if(arr[i] == item) {
+                remove(i); // after finding the index of the item it uses remove by index
+                break;
+            }
+        }
+        return true;
     }
 
+    // removes the item by its index in array
     @Override
     public Object remove(int index) {
-        return null;
+        for(int i = index; i < size() - 1; i++) {
+            arr[i] = arr[i + 1];
+        }
+        decreaseArrSize();
+        return 0;
     }
 
     @Override
@@ -99,5 +119,10 @@ public class MyArrayList implements MyList {
     @Override
     public void sort() {
 
+    }
+
+    // to get an array after its increase in size
+    public Object[] getArr() {
+        return arr;
     }
 }
