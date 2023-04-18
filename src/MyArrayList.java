@@ -96,9 +96,12 @@ public class MyArrayList implements MyList {
         return 0;
     }
 
+    // method to clear the array
     @Override
     public void clear() {
-
+        for(int i = 0; i < size(); i++) {
+            arr[i] = null;
+        }
     }
 
     @Override
