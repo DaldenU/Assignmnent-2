@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.NoSuchElementException;
 
 // used "implements" to implement "MyList" interface
 public class MyArrayList implements MyList {
@@ -77,12 +77,7 @@ public class MyArrayList implements MyList {
     // method to remove the element by inputting its name
     @Override
     public boolean remove(Object item) {
-        for(int i = 0; i < size(); i++) {
-            if(arr[i] == item) {
-                remove(i); // after finding the index of the item it uses remove by index
-                break;
-            }
-        }
+        remove(indexOf(item)); // uses indexOf to get the index by which it removes the element with remove(index)
         return true;
     }
 
@@ -109,9 +104,15 @@ public class MyArrayList implements MyList {
         return arr[index];
     }
 
+    // method to get the index of element
     @Override
     public int indexOf(Object o) {
-        return 0;
+        for(int i = 0; i < size(); i++) {
+            if(arr[i].equals(o)) {
+                return i;
+            }
+        }
+        throw new NoSuchElementException(); // if nothing comes out of for loop, it throws exception that element doesn't exist
     }
 
     @Override
