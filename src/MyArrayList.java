@@ -1,8 +1,19 @@
 // used "implements" to implement "MyList" interface
 public class MyArrayList implements MyList {
+    private Object[] arr; // private instance variable of type Object[] to hold the elements of the list
+    private int size; // int variable to keep track of the number of elements in the list.
+
+    // constructor to access private instances
+    public MyArrayList (Object[] arr) {
+        this.arr = arr;
+        this.size = 0;
+    }
+
+    // method that returns the size of an array by using "length" property
     @Override
     public int size() {
-        return 0;
+        size = arr.length;
+        return size;
     }
 
     @Override
