@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 // used "implements" to implement "MyList" interface
 public class MyArrayList implements MyList {
     private Object[] arr; // private instance variable of type Object[] to hold the elements of the list
@@ -27,9 +29,16 @@ public class MyArrayList implements MyList {
         return false;
     }
 
+    // when the new element is added, "newArr" which has a bigger size, will become the "arr"
     @Override
     public void add(Object item) {
-
+        int a = size();
+        Object[] newArr = new Object[size() + 1];
+        for(int i = 0; i < size(); i++){
+            newArr[i] = arr[i];
+        }
+        arr = newArr;
+        arr[a] = item;
     }
 
     @Override
