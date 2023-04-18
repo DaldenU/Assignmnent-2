@@ -16,8 +16,14 @@ public class MyArrayList implements MyList {
         return size;
     }
 
+    // method to find if the inputted element exists in the array
     @Override
     public boolean contains(Object o) {
+        for(int i = 0; i < size(); i++) {
+            if(arr[i] == o) {
+                return true;
+            }
+        }
         return false;
     }
 
