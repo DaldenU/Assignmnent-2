@@ -116,9 +116,17 @@ public class MyArrayList implements MyList {
         throw new NoSuchElementException(); // if nothing comes out of for loop, it throws exception that element doesn't exist
     }
 
+    // method to get the last index of inputted element
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        int holder = 0;
+        for(int i = 0; i < size(); i++) {
+            if(arr[i].equals(o)) {
+                holder = i; // hold the index of the element, if the same element comes again it changes its value
+            }
+        }
+
+        return holder;
     }
 
     @Override
