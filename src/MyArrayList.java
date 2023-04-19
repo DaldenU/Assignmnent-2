@@ -99,6 +99,7 @@ public class MyArrayList implements MyList {
         }
     }
 
+    // getting an element by its index
     @Override
     public Object get(int index) {
         return arr[index];
