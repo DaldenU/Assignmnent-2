@@ -138,4 +138,17 @@ public class MyArrayList implements MyList {
     public Object[] getArr() {
         return arr;
     }
+
+    // method to add all the list
+    public void addAll(Object[] input, int i) {
+        if(input.length > size()) {
+            increaseArrSize();
+            addAll(input, i);
+        }
+        if(contains(input[input.length - 1])) {
+        } else {
+            add(input[i]);
+        }
+
+    }
 }
